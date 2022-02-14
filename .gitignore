@@ -1,0 +1,11 @@
+# node modules folder
+node_modules
+package-lock.json
+yarn.lock
+
+# output folders
+dist
+dev
+
+# parcel cache if activated
+.parcel-cache

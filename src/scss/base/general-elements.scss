@@ -1,0 +1,66 @@
+@use '../config/' as *;
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  color: $color-font;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: normal;
+  font-family: $font-base;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  font-size: $font-size-base;
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: $color-font;
+  color: $color-font-inverse;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  outline: none;
+
+  &:hover,
+  &:active {
+    text-decoration: none;
+  }
+}
+
+button,
+.button {
+  background-color: transparent;
+  appearance: none;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+strong {
+  font-weight: $font-weight-bold;
+  font-size: inherit;
+}

@@ -1,0 +1,14 @@
+{
+  "extends": "airbnb-base",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2021
+  },
+  "rules": {
+    "no-param-reassign": ["warn"],
+    "no-unused-expressions": ["error", {"allowTernary": true}]
+  }
+}

@@ -1,0 +1,9 @@
+mixin slider(slides)
+  section.slider
+    script.webgl-slides(type='application/json').
+      {
+        "slides": !{JSON.stringify(slides)}
+      }
+
+    each slide in slides
+      img(src="../../res/img/" + slide.image.src, style="display: none;")

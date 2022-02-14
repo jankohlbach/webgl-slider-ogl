@@ -1,0 +1,14 @@
+@use './color' as *;
+
+$font-size-base: 16px;
+
+$font-primary: 'Inter';
+$font-base: $font-primary, 'Fira Sans', 'Source Sans Pro', 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+$font-size: rem(20);
+
+$font-weight: 400;
+$font-weight-bold: 700;
+
+$color-font: $black;
+$color-font-inverse: $white;

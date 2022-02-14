@@ -1,0 +1,11 @@
+{
+  "name": "parcel-namer-custom-images",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "main": "index.js",
+  "engines": {
+    "parcel": "^2.0.0"
+  }
+}

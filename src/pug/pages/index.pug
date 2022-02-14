@@ -1,0 +1,54 @@
+extends ../template/page
+
+include ../components/slider
+
+block variables
+  - const pageTitle = 'index';
+
+block main
+  main
+    h1 webgl slider with ogl experiment
+    +slider([
+      {
+        image: {
+          src: '/banana-1.jpg',
+          alt: 'a banana 1',
+        },
+        url: '#1',
+      },
+      {
+        image: {
+          src: '/pineapple-1.jpg',
+          alt: 'a pineapple 1',
+        },
+        url: '#2',
+      },
+      {
+        image: {
+          src: '/banana-1.jpg',
+          alt: 'a banana 1',
+        },
+        url: '#3',
+      },
+      {
+        image: {
+          src: '/pineapple-1.jpg',
+          alt: 'a pineapple 1',
+        },
+        url: '#4',
+      },
+      {
+        image: {
+          src: '/banana-1.jpg',
+          alt: 'a banana 1',
+        },
+        url: '#5',
+      },
+      {
+        image: {
+          src: '/pineapple-1.jpg',
+          alt: 'a pineapple 1',
+        },
+        url: '#6',
+      },
+    ])

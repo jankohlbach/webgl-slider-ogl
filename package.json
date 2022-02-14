@@ -1,0 +1,38 @@
+{
+  "name": "webgl-slider-ogl",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "parcel serve src/pug/pages/*.pug --dist-dir dev --no-cache --open",
+    "build": "rm -rf dist && mkdir dist && cp -r src/static/. dist && parcel build src/pug/pages/*.pug --dist-dir dist --no-cache --public-url ./ --no-source-maps"
+  },
+  "author": "",
+  "license": "ISC",
+  "browserslist": [
+    "last 4 versions",
+    "ie 11",
+    "not ie < 11",
+    "> 0.2%",
+    "Firefox ESR",
+    "not dead"
+  ],
+  "devDependencies": {
+    "@parcel/transformer-glsl": "^2.2.1",
+    "@parcel/transformer-pug": "^2.0.0",
+    "@parcel/transformer-sass": "^2.0.0",
+    "eslint": "^7.16.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "parcel": "^2.0.0",
+    "stylelint": "^13.8.0",
+    "stylelint-config-recommended-scss": "^4.2.0",
+    "stylelint-declaration-strict-value": "^1.7.5",
+    "stylelint-scss": "^3.18.0"
+  },
+  "dependencies": {
+    "normalize-wheel": "^1.0.1",
+    "normalize.css": "^8.0.1",
+    "ogl": "^0.0.81",
+    "parcel-namer-custom-images": "link:./parcel-namer-custom-images"
+  }
+}
