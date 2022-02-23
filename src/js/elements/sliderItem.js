@@ -15,7 +15,7 @@ class SliderItem {
     geometry,
     scene,
     screen,
-    scaleFactor,
+    perScreen,
     aspectRatio,
     gap,
     length,
@@ -27,7 +27,7 @@ class SliderItem {
     this.geometry = geometry;
     this.scene = scene;
     this.screen = screen;
-    this.scaleFactor = scaleFactor;
+    this.perScreen = perScreen;
     this.aspectRatio = aspectRatio;
     this.gap = gap;
     this.length = length;
@@ -82,18 +82,14 @@ class SliderItem {
       ];
     }
 
-    this.scale = this.screen.height / this.scaleFactor;
+    const responsiveGap = this.gap * this.viewport.width;
 
-    this.plane.scale.x = (
-      this.viewport.width * (this.aspectRatio.x * this.scale))
-      / this.screen.width;
-    this.plane.scale.y = (
-      this.viewport.height * (this.aspectRatio.y * this.scale))
-      / this.screen.height;
+    this.plane.scale.x = this.viewport.width / this.perScreen - responsiveGap;
+    this.plane.scale.y = this.plane.scale.x / (this.aspectRatio.x / this.aspectRatio.y);
 
     this.plane.program.uniforms.uPlaneSizes.value = [this.plane.scale.x, this.plane.scale.y];
 
-    this.width = this.plane.scale.x + this.gap;
+    this.width = this.plane.scale.x + responsiveGap;
     this.widthTotal = this.width * this.length;
 
     this.x = (-this.viewport.width / 2 + this.width / 2) + this.index * this.width;
@@ -103,10 +99,10 @@ class SliderItem {
     this.plane.position.x = this.x - scroll.current;
 
     const boundsCheck = scroll.direction === -1
-      ? Math.round(this.plane.position.x + (this.width / 2))
-      : Math.round(this.plane.position.x - (this.width / 2));
+      ? Math.ceil(this.plane.position.x + (this.width / 2))
+      : Math.ceil(this.plane.position.x - (this.width / 2));
 
-    if (boundsCheck !== 0 && boundsCheck % Math.round(this.viewport.width / 2) === 0) {
+    if (boundsCheck !== 0 && boundsCheck % Math.ceil(this.viewport.width / 2) === 0) {
       if (scroll.direction === -1 && Math.sign(this.plane.position.x) === -1) {
         this.x += this.widthTotal;
       } else if (scroll.direction === 1 && Math.sign(this.plane.position.x) === 1) {

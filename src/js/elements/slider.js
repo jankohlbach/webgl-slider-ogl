@@ -47,7 +47,7 @@ class Slider {
       last: 0,
     };
 
-    ['update', 'onWheel', 'onTouchDown', 'onTouchMove', 'onTouchUp'].forEach((fn) => { this[fn] = this[fn].bind(this); });
+    ['onResize', 'update', 'onWheel', 'onTouchDown', 'onTouchMove', 'onTouchUp'].forEach((fn) => { this[fn] = this[fn].bind(this); });
 
     this.init();
   }
@@ -109,9 +109,9 @@ class Slider {
         geometry: this.planeGeometry,
         scene: this.scene,
         screen: this.screen,
-        scaleFactor: 5,
+        perScreen: 3,
         aspectRatio: { x: 2, y: 3 },
-        gap: 2,
+        gap: 0.1,
         length: images.size,
         index,
       }));
@@ -134,7 +134,7 @@ class Slider {
     if (!this.isTouchDown) { return; }
 
     const x = e.touches ? e.touches[0].clientX : e.clientX;
-    const distance = (this.scroll.start - x) * 0.02;
+    const distance = (this.scroll.start - x) * 0.05;
 
     this.scroll.target = this.scroll.current + distance;
   }
